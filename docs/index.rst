@@ -19,12 +19,24 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
-Introduction
+Booleans
 #############
 
-The reStructuredText (RST) syntax provides an easy-to-read, what-you-see-is-what-you-get plaintext markup syntax and parser system. However, you need to be very precise and stick to some strict rules: 
+Booleans help you to filter data according to specified criteria:
+	* == returns True if both variables are equivalent, and False if they're different
+	* != returns True if both variables are different, and False if they're equivalent
 
-    * like Python, RST syntax is sensitive to indentation !
-    * RST requires blank lines between paragraphs
+Use parentheses for cleaner code.
+t = (8 == 8) # True
+
+Remember that when using len() to retrieve the last element from a list you should subtract 1:
+crime_last = crime[len(crime) - 1]
+The length of the list is does not specify the last element in the list as the list index begins at 0.
+
+If Statements
+#############
+if value > 500:
+	do something
+
 
 This entire document is written with the RST syntax. In the right sidebar, you should find a link **show source**, which shows the RST source code.
