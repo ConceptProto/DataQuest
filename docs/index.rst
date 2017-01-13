@@ -30,7 +30,9 @@ int() - convers to integer
 Lists
 #############
 months = [] - initialise a list
-months.append() - Adds to the end of the list
+months.append('value') - Adds to the end of the list
+months = [1, "January", 2, "February"] - creating list with values
+months[0] - accessing values in list
 len(months) - returns the length of the list
 month_slice = months[2:4] - give the list items 2 and 3, not 4.
 split_list = g.split(",") - split the data in g into a list
@@ -63,6 +65,21 @@ If you have a list of lists
 	* shorthand: data[0][0]
 
 To get a list of lists from a csv:
+Long way - 
+
+f = open('dq_unisex_names.csv', 'r')
+names = f.read()
+names_list = names.split('\n')
+
+nested_list = []
+for element in names_list:
+    comma_list = element.split(',')
+    nested_list.append(comma_list)
+    
+print(nested_list[0:5])
+
+short way -
+
 import csv
 
 f = open("world_alcohol.csv")
@@ -156,6 +173,38 @@ matrix.shape OR vector.shape
 type of an array:
 numbers.dtype
 
+* a numpy array has to be of the same type
+* numpy will convert all of the leements in the array to a type it guessed.
+* elements that can't be converted to the selected type will be NaN 0 Not a Number
+* missing elements will resolve to na - Not Available
+
+To specify that the genfromtxt() function should read in the data as string:
+import numpy
+world_alcohol = numpy.genfromtxt('world_alcohol.csv', delimiter=",", dtype='U75', skip_header=1)
+print (world_alcohol)
+
+#slice vectors and lists the same
+*indexing (getting the element) for vectors and lists are the same
+
+To get the entire column (slicing) from an array
+countries = world_alcohol[:,2]
+
+To get a matrix from a matrix
+matrix = numpy.array([
+                    [5, 10, 15], 
+                    [20, 25, 30],
+                    [35, 40, 45]
+                 ])
+print(matrix[:,0:2])
+
+[
+    [5, 10],
+    [20, 25],
+    [35, 40] 
+]
+
+This specifies that the matrix should include column 0 to 3, but excluding column 3 (and all the rows)
+
 Recipes
 #############
 Open a file and read in each row into a list of lists
@@ -209,6 +258,35 @@ def calc_counts(data, column):
             column_total[chosen_column] = birth_column
     return (column_total)
 
+convert the second element in the list of 2 elements to a numerical value
+temp_list = []
+numerical_list = []
+
+#print (nested_list[0][1])
+
+for element in nested_list:
+#    print (element)
+    first_element = element[0]
+    second_element = float(element[1])
+    temp_list.append(first_element)
+    temp_list.append(second_element)
+    numerical_list.append(temp_list)
+    temp_list = []
+
+Get the second column from a list
+weather = []
+for element in weather_data:
+    weather.append(element[1])
+
+counting the number of unique values in a list
+pantry = ["apple", "orange", "grape", "apple", "orange", "apple", "tomato", "potato", "grape"]
+
+pantry_counts = {}
+for element in pantry:
+    if element in pantry_counts:
+        pantry_counts[element] = pantry_counts[element] + 1
+    else:
+        pantry_counts[element] = 1
 
 Remember
 #############
