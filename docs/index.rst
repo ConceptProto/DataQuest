@@ -21,29 +21,29 @@ Indices and tables
 
 Popular functions
 #############
-type() - gives the type
-str() - converts to string
-int() - convers to integer
-.replace() - substitutes a word for another
-.lower() - converts all uppercase text to lowercase text
+*type() - gives the type
+*str() - converts to string
+*int() - convers to integer
+*.replace() - substitutes a word for another
+*.lower() - converts all uppercase text to lowercase text
 
 Lists
 #############
-months = [] - initialise a list
-months.append('value') - Adds to the end of the list
-months = [1, "January", 2, "February"] - creating list with values
-months[0] - accessing values in list
-len(months) - returns the length of the list
-month_slice = months[2:4] - give the list items 2 and 3, not 4.
-split_list = g.split(",") - split the data in g into a list
+*months = [] - initialise a list
+*months.append('value') - Adds to the end of the list
+*months = [1, "January", 2, "February"] - creating list with values
+*months[0] - accessing values in list
+*len(months) - returns the length of the list
+*month_slice = months[2:4] - give the list items 2 and 3, not 4.
+*split_list = g.split(",") - split the data in g into a list
 
 Files
 #############
-f = open("crime_rates.csv", "r") - open files
-g = f.read() - returns a string representation of a text in a file
+*f = open("crime_rates.csv", "r") - open files
+*g = f.read() - returns a string representation of a text in a file
 
 shorthand:
-g = open("crime_rates.csv").read()
+*g = open("crime_rates.csv").read()
 
 
 for loops
@@ -204,6 +204,34 @@ print(matrix[:,0:2])
 ]
 
 This specifies that the matrix should include column 0 to 3, but excluding column 3 (and all the rows)
+
+Array comparisons:
+vector = numpy.array([5, 10, 15, 20])
+vector == 10
+
+numpy will compare 10 to each value in vector and build a new vector with True/ False values.
+e.g
+[False, True, False, False]
+
+Select a row or column from an array or matrix according to specified criteria
+matrix = numpy.array([
+                [5, 10, 15], 
+                [20, 25, 30],
+                [35, 40, 45]
+             ])
+    second_column_25 = (matrix[:,1] == 25)
+    print(matrix[second_column_25, :])
+
+
+
+
+
+
+
+
+
+
+
 
 Recipes
 #############
